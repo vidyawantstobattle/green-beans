@@ -1,28 +1,37 @@
-import "./Nav.css"
-import {FiHeart} from "react-icons/fi"
-import {AiOutlineShoppingCart,AiOutlineUserAdd} from "react-icons/ai"
+import "./Nav.css";
+import { FiHeart } from "react-icons/fi";
+import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
+import logo from "../assets/impactOS.jpeg"; // Ensure this path is correct
 
-function Navigation({handleInputChange, query }){
-    return(
-        <nav>
-            <div classname="navcontainer">
-                <input type="text" classname="searchinput" 
-                onChange={handleInputChange}
-                value={query}
-                placeholder="Enter Product"></input>
-            </div>
-            <div className="profile">
-                <a href="#" >
-                    <FiHeart className="nav-icons "/>
-                </a>
-                <a href="#">
-                    <AiOutlineShoppingCart className="nav-icons" />
-                </a>
-                <a href="#">
-                    <AiOutlineUserAdd className="nav-icons" />
-                </a>
-            </div>
-        </nav>
-    )
+function Navigation({ handleInputChange, query }) {
+  return (
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <a href="/">
+          <img src={logo} alt="askKauko" />
+        </a>
+      </div>
+      
+      <ul className="navbar-links">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/database">Database</a>
+        </li>
+        <li>
+          <a href="/community">Community</a>
+        </li>
+        <li>
+          <a href="/API">API Docs</a>
+        </li>
+        <li>
+          <a href="/support">Support</a>
+        </li>
+      </ul>
+     
+    </nav>
+  );
 }
+
 export default Navigation;

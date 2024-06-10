@@ -6,7 +6,7 @@ function Sidebar({handleChange}){
     return (
         <>
         <div className="sidebar">
-            <h1>🛒</h1>
+           
             <Category handleChange={handleChange}/>
             <Price  handleChange={handleChange}/>
             <Colors  handleChange={handleChange}/>
