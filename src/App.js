@@ -71,7 +71,7 @@ function App() {
 
   return (
     <>
-      <Sidebar handleChange={handleChange} />
+      
       <Navigation query={query} handleInputChange={handleInputChange} />
       <Recommond handleClick={handleClick} />
       <Products result={result} />
