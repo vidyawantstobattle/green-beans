@@ -1,80 +1,71 @@
-# django-react-postgres-boilerplate
+# Getting Started with Create React App
+![React Website Filter and Search](https://github.com/samanth2012/React-Website-With-Filter-and-Search-Simple/assets/114215621/1f98e977-5f3b-4451-8eb8-4ee8da9e1c7c)
 
-## Prerequisites
-Install Docker Desktop
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Installation
+## Available Scripts
 
-**_Make sure backend\entrypoint.sh has LF format and not CRLF format_**
+In the project directory, you can run:
 
-You shouldn't have to make any other changes to get the app up and running, but here's some things to note:
+### `npm start`
 
-- The default login credentials are admin and admin_password. These can be changed in backend/.env.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- There are 3 .env files provided. Note in particular the .env files in backend/ and postgres/; there, you can adjust the database credentials, debug mode, secret key, allowed hosts, etc. The app should run just fine without any changes, but just know these files are there.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- The included sample helloyou django app can be easily removed by removing 'helloyou' from INSTALLED_APPS in django mainapp/settings.py, removing the associated helloyou path in mainapp/urls.py and deleting the entire helloyou folder. There are no database migrations, so you don't need to worry about that. On the frontend, delete/replace the contents of Home.tsx.
+### `npm test`
 
-## Running
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Run the following command:
+### `npm run build`
 
-```sh
-docker-compose -f "docker-compose.dev.yml" up -d --build
-```
-The react frontend should be available at `http://localhost:3000/` and django backend at `http://localhost:8000/` (django admin at `http://localhost:8000/admin/`).
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Features
-### Forgot Password:
-- The password reset feature is fully functional. In order to get the password reset url, you will need to open the backend django logs. For example (in Powershell):
-    ```sh
-    $id = $(docker ps -aqf "name=backend")
-    docker logs --tail 1000 -f $id
-    ```
-- Upon submitting a valid email (default is admin@example.com), you should get a path like `http://localhost:3000/password_reset?token=abcdefgxyz123`; paste this in your browser to access the password reset form. The password reset form first validates the token; if the token is valid, it presents the password reset interface and allows the user to provide a new password. If the token is invalid, it will redirect the user to the login page.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-    Check out the Django docs starting [here](https://docs.djangoproject.com/en/3.1/topics/email/#smtp-backend) in order to update the Email Backend from a console output to an actual SMTP backend.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Left Navigation Bar:
-- The left navigation bar (intially shown on the left with only the Home icon upon login) is auto-generated along with the associated React Router's private routes. These routes can be easily added/modified in routes/Routes.ts.
+### `npm run eject`
 
-### Subroutes/Params:
-- There is a dummy component called Placeholder that gives an example on how to access parameters passed into the url. This is useful when ensuring the user can access a specific page given say a object's PK...even if the page is refreshed. See routes.ts on how to setup the routes to accept optional parameters in the url path.
-  
-### Alerts:
-- An alert setter at the context level is also included. An example of TriggerAlert is shown in Home.tsx (variants displayed after successful/failed submit). See AlertContext.tsx for typings.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Modal/Dialog:
-- Similar to the alert setter, a context level modal/dialog is also provided. Use OpenDialog (basic example shown in Home.tsx) to open and set the modal title/contents/footer.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### Customization:
-- The app name (shown at login & header) is set by the constant APP_NAME in frontend/src/settings.tsx.
-- The default session duration is set to 5 hours in frontend/src/settings.tsx. The user will be logged out after 5 hours.
-- The Material UI Theme can be adjusted in frontend\src\Theme.tsx
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- original link to github website here: https://github.com/emilefrey/django-react-postgres-boilerplate
-###
+## Learn More
 
-**TODO:**
-- [x] Readme (setup and how to remove remnants of dummy stuff)
-- [x] Material UI Theme
-- [x] Auto Generation of Left Nav based on Routes?
-- [x] Fix NGINX Docker Compose
-- [x] fix django admin not serving css files on admin page
-- [x] error context
-- [x] show password errors
-- [x] loading icon on login
-- [x] ensure a non-existing route redirects to home 
-- [x] email support (for password reset)
-- [x] forgot password functionality (email)
-- [x] Add support for nested sub-routes off the main left-nav routes
-- [x] Ensure match params (i.e. /user/profile/1/) work correctly.
-- [x] Context level modal?
-- [x] Auto redirect to login with Failed Request
-- [ ] Reset session timeout with activity.
-- [ ] Swagger API Explorer
-- [ ] Backend Testing
-- [ ] Frontend Testing (React Testing Library)
-- [ ] Axios Interface for demo API
-- [ ] Update and Pin versions (remove anything unused)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
