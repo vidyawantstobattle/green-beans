@@ -13,6 +13,7 @@
 .navbar-logo img {
   height: 50px;
   cursor: pointer;
+  margin-left: 20px
 }
 
 .navbar-links {
@@ -23,6 +24,7 @@
   padding: 0;
   font-weight: bolder;
   font-size: medium;
+  margin-left: 130px;
 }
 
 .navbar-auth {
@@ -35,7 +37,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
-  background-color: #c1b620;
+  background-color: #d5ab1d;
   color: white;
   cursor: pointer;
 }
@@ -92,9 +94,12 @@ body.dark-mode {
 }
 
 body.dark-mode .navbar {
-  background-color: #444;
+  background-color: #111111;
 }
 
 body.dark-mode .auth-button {
-  background-color: #888;
+  background-color: #616060;
+}
+body.dark-mode .navbar-links li a {
+  color: #f0e3e3;
 }
