@@ -10,18 +10,30 @@ import Login from "./pages/Login/login";
 import "./index.css";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [currentPage, setCurrentPage] = useState(window.location.pathname);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    setDarkMode(!darkMode);
+    document.body.classList.toggle("dark-mode", !darkMode);
   };
-
 
   const renderPage = () => {
     switch (currentPage) {
       case "/":
-        return <Home isDarkMode={isDarkMode} />;
+        return <Home />;
       case "/contribute":
         return <Contribute />;
       case "/community":
@@ -35,15 +47,15 @@ function App() {
       case "/login":
         return <Login />;
       default:
-        return <Home isDarkMode={isDarkMode} />;
+        return <Home />;
     }
   };
 
   return (
-  <div className={isDarkMode ? 'app dark' : 'app'}>
-    <Navigation setCurrentPage={setCurrentPage} toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-    {renderPage()}
-  </div>
+    <>
+      <Navigation setCurrentPage={setCurrentPage} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      {renderPage()}
+    </>
   );
 }
 

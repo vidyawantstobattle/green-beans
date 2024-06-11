@@ -4,14 +4,14 @@ import { FiHeart } from "react-icons/fi";
 import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 import logo from "../../assets/impactOS1.png";
 
-function Navigation({ setCurrentPage, toggleDarkMode, isDarkMode }) {
+function Navigation({ setCurrentPage, darkMode, toggleDarkMode }) {
   const navigate = (path) => {
     window.history.pushState(null, "", path);
     setCurrentPage(path);
   };
 
   return (
-    <nav className={`navbar ${isDarkMode ? 'dark' : ''}`}>
+    <nav className="navbar">
       <div className="navbar-logo">
         <img src={logo} alt="askKauko" onClick={() => navigate("/")} />
       </div>
@@ -22,11 +22,17 @@ function Navigation({ setCurrentPage, toggleDarkMode, isDarkMode }) {
         <li><a href="#" onClick={() => navigate("/api-docs")}>API Docs</a></li>
         <li><a href="#" onClick={() => navigate("/support")}>Support</a></li>
       </ul>
-      <button className="dark-mode-toggle" onClick={toggleDarkMode}>
-        {isDarkMode ? "Light Mode" : "Dark Mode"}
-      </button>
+      <div className="navbar-auth">
+        <button onClick={() => navigate("/signup")} className="auth-button">Sign Up</button>
+        <button onClick={() => navigate("/login")} className="auth-button">Login</button>
+        <label className="switch">
+          <input type="checkbox" checked={darkMode} onChange={toggleDarkMode} />
+          <span className="slider"></span>
+        </label>
+      </div>
     </nav>
   );
 }
 
 export default Navigation;
+

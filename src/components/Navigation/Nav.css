@@ -1,38 +1,18 @@
-/* Common Styles */
-nav {
+/* General styling for navbar */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
   padding: 20px;
   z-index: 999;
+  box-shadow: 0 1px 0 #858282;
+  padding: 0.2rem 1rem;
 }
 
 .navbar-logo img {
-  position: relative;
   height: 50px;
-  right: -40px;
-  margin-top: 0px;
-}
-
-.navbar {
-  box-shadow: 0 1px 0 #858282; /* add a bottom border to the navbar using box-shadow */
-  padding: 0.2rem 1rem; /* add more padding to the top and bottom */
-}
-
-.navcontainer {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-}
-
-input {
-  padding: 12px 20px;
-  border: none;
-  background: #f7f6f6;
-  outline: none;
-  border-radius: 5px;
-  width: 14rem;
+  cursor: pointer;
 }
 
 .navbar-links {
@@ -45,37 +25,76 @@ input {
   font-size: medium;
 }
 
-.profile {
+.navbar-auth {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.nav-icons {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: #ffffff;
-}
-
-/* Dark Mode Styles */
-.navbar.dark {
-  background-color: #333333;
-}
-
-.navbar-links a {
-  color: #000000;
-}
-
-.navbar.dark .navbar-links a {
-  color: #ffffff;
-}
-
-.dark-mode-toggle {
-  background: none;
+.auth-button {
+  padding: 10px 20px;
+  border-radius: 5px;
   border: none;
-  color: #000000;
+  background-color: #c1b620;
+  color: white;
   cursor: pointer;
 }
 
-.navbar.dark .dark-mode-toggle {
-  color: #ffffff;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Dark mode styling */
+body.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode .navbar {
+  background-color: #444;
+}
+
+body.dark-mode .auth-button {
+  background-color: #888;
 }
