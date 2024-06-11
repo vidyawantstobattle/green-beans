@@ -26,3 +26,13 @@ li {
   color: #323232;
   cursor: pointer;
 }
+/* Common Styles */
+.app {
+  font-family: Arial, sans-serif;
+}
+
+/* Dark Mode Styles */
+.app.dark {
+  background-color: #121212;
+  color: #ffffff;
+}

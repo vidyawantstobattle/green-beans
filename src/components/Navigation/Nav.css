@@ -1,3 +1,4 @@
+/* Common Styles */
 nav {
   display: flex;
   justify-content: space-between;
@@ -17,8 +18,8 @@ nav {
 .navbar {
   box-shadow: 0 1px 0 #858282; /* add a bottom border to the navbar using box-shadow */
   padding: 0.2rem 1rem; /* add more padding to the top and bottom */
-
 }
+
 .navcontainer {
   flex-grow: 1;
   display: flex;
@@ -44,8 +45,6 @@ input {
   font-size: medium;
 }
 
-
-
 .profile {
   display: flex;
   gap: 1rem;
@@ -54,5 +53,29 @@ input {
 .nav-icons {
   width: 1.5rem;
   height: 1.5rem;
+  color: #ffffff;
+}
+
+/* Dark Mode Styles */
+.navbar.dark {
+  background-color: #333333;
+}
+
+.navbar-links a {
+  color: #000000;
+}
+
+.navbar.dark .navbar-links a {
+  color: #ffffff;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+}
+
+.navbar.dark .dark-mode-toggle {
   color: #ffffff;
 }
