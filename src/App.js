@@ -22,6 +22,7 @@ function App() {
 
   const renderPage = () => {
     return <Home />;
+    // call your search page here 
   };
 
   return (
