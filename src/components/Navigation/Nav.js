@@ -17,6 +17,7 @@ function Navigation({ setCurrentPage, darkMode, toggleDarkMode }) {
       </div>
       <ul className="navbar-links">
         <li><a href="#" onClick={() => navigate("/")}>Home</a></li>
+        <li><a href="#" onClick={() => navigate("/search")}>Search</a></li>
         <li><a href="#" onClick={() => navigate("/contribute")}>Contribute</a></li>
         <li><a href="#" onClick={() => navigate("/community")}>Community</a></li>
         <li><a href="#" onClick={() => navigate("/api-docs")}>API Docs</a></li>
