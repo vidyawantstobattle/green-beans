@@ -1,10 +1,10 @@
 import "./Recommond.css"
 import Button from "../components/buttons";
-function Recommond({handleClick}){
+function Recommond({handleClick, length}){
     return(
         <>
       <div>
-        <h2 className="recommended-title">Recommended</h2>
+      <h2 className="recommended-title">Results Found</h2>
         <div className="recommended-flex">
           <Button onClickHandler={handleClick} value="" title="All Products" />
           <Button onClickHandler={handleClick} value="Nike" title="Nike" />
@@ -12,6 +12,7 @@ function Recommond({handleClick}){
           <Button onClickHandler={handleClick} value="Puma" title="Puma" />
           <Button onClickHandler={handleClick} value="Vans" title="Vans" />
         </div>
+        <h3 className="results-found">Number of Results Found: {length}</h3>
       </div>
     </>
     )

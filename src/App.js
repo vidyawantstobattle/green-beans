@@ -4,6 +4,7 @@ import Home from "./pages/Home/home";
 import Contribute from "./pages/Contribute/contribute";
 import Community from "./pages/Community/community";
 import APIDocs from "./pages/APIDocs/apidocs";
+import Search from "./pages/Search/search";
 import Support from "./pages/Support/support";
 import Signup from "./pages/Signup/signup";
 import Login from "./pages/Login/login";
@@ -34,6 +35,8 @@ function App() {
     switch (currentPage) {
       case "/":
         return <Home />;
+      case "/search":
+        return <Search />;
       case "/contribute":
         return <Contribute />;
       case "/community":

@@ -1,6 +1,6 @@
 import "./Category.css";
 import Input2 from '../../components/inputs';
-import logo from "../../assets/impactOS.jpeg"; // Ensure this path is correct
+import logo from "../../assets/impactos.png"; // Ensure this path is correct
 
 function Category({ handleChange }) {
   return (
