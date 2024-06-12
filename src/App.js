@@ -6,8 +6,8 @@ import Community from "./pages/Community/community";
 import APIDocs from "./pages/APIDocs/apidocs";
 import Search from "./pages/Search/search";
 import Support from "./pages/Support/support";
-import Signup from "./pages/Signup/signup";
-import Login from "./pages/Login/login";
+import Signup from "./pages/Auth/signup";
+import Login from "./pages/Auth/login";
 import "./index.css";
 
 function App() {
@@ -45,10 +45,10 @@ function App() {
         return <APIDocs />;
       case "/support":
         return <Support />;
-      case "/signup":
-        return <Signup />;
-      case "/login":
-        return <Login />;
+        case '/login':
+          return <Login darkMode={darkMode} />;
+        case '/signup':
+          return <Signup darkMode={darkMode} />;
       default:
         return <Home />;
     }
