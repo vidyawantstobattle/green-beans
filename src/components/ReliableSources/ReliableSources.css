@@ -1,0 +1,44 @@
+.reliable-sources {
+    margin-top: -10px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .reliable-sources h2 {
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .sources-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .source-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    color: white;
+  }
+  
+  .source-card h3 {
+    margin-top: 0;
+  }
+  
+  .source-card p {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  
+  .source-card a {
+    color: #c1b620;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  

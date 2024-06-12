@@ -3,37 +3,86 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Adjusted to fit additional content */
   height: 100vh;
+  padding: 20px; /* Added padding for better spacing */
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../../assets/impactOS1.png') no-repeat center center/cover;
+  color: white; /* Ensures text is readable on the dark background */
+  font-family: 'Arial', sans-serif; /* Updated font family */
 }
 
 .home.dark {
   background: #333333;
 }
 
+.platform-info,
+.additional-info {
+  text-align: center;
+  max-width: 800px; /* Added max-width for better centering */
+  margin: 0 auto; /* Center the content */
+}
+
+.platform-info {
+  margin-top: 40px; /* Added margin for spacing */
+}
+
+.platform-info h1 {
+  font-size: 36px; /* Adjusted font size */
+  margin-bottom: 20px;
+}
+
+.platform-info p {
+  font-size: 18px;
+  line-height: 1.6; /* Improved readability with line-height */
+  margin-bottom: 15px;
+}
+
 .search-bar {
-  margin-top: -200px;
+  margin-top: 70px; /* Adjusted margin for consistency */
 }
 
 .search-bar input {
-  padding: 10px;
-  width: 300px;
-  border-radius: 5px;
+  padding: 17px; /* Increase padding for larger size */
+  width: 500px;  /* Increase width for larger size */
+  border-radius: 25px; /* Round edges */
   border: none;
+  font-size: 20px; /* Increase font size */
 }
 
 .search-bar button {
-  padding: 10px;
+  padding: 17px 25px; /* Increase padding for larger size */
   margin-left: 10px;
-  border-radius: 5px;
-  background-color: #c1b620;
+  border-radius: 25px; /* Round edges */
+  background-color: #d5ab1d;
   color: white;
   border: none;
+  font-size: 20px; /* Increase font size */
+  cursor: pointer;
+}
+
+.additional-info {
+  margin-top: 40px; /* Added margin for spacing */
+}
+
+.additional-info h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.additional-info p,
+.additional-info ul {
+  font-size: 18px;
+  line-height: 1.6; /* Improved readability with line-height */
+  margin-bottom: 15px;
+}
+
+.additional-info ul {
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 .reliable-sources {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
   color: white;
 }
