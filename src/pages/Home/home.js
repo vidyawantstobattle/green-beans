@@ -17,7 +17,7 @@ function Home() {
   return (
     <div className="home">
       <div className="platform-info">
-        <h1>Welcome to ImpactOS Emission Factor Database</h1>
+        <h1>ImpactOS Emission Factor Database</h1>
       </div>
       <div className="search-bar">
         <input
