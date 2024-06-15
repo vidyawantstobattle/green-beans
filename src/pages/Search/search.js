@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Products from '../../Products/Products';
 import Recommond from '../../Recommond/Recommond';
 import Sidebar from '../../Sidebar/Sidebar';
@@ -10,14 +11,16 @@ import './search.css';
 // this the refactored code related to searching and filtering results that was in app.js
 // put the css for the table in search.css ?
 function Search() {
+
+  // axios.get("http://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissionfactor/?format=json")
+  // .then((response) => console.log(response.data))
+  // .catch((error) => console.log(error));
+
   const [selectedCategory, setSelectedCategory] = useState(null);
   
   // ----------- Input Filter -----------
-  const [query, setQuery] = useState("");
-
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
-  };
+  const params = new URLSearchParams(window.location.search)
+  let query = params.get('q') ? q : '';
 
   const filteredItems = products.filter(
     (product) => product.title.toLowerCase().indexOf(query.toLowerCase())!== -1
@@ -32,42 +35,6 @@ function Search() {
   const handleClick = (event) => {
     setSelectedCategory(event.target.value);
   };
-
-  function filteredData(products, selected, query) {
-    let filteredProducts = products;
-
-    if (query) {
-      filteredProducts = filteredItems;
-    }
-
-    if (selected) {
-      filteredProducts = filteredProducts.filter(
-        ({ category, color, company, newPrice, title }) =>
-          category === selected ||
-          color === selected ||
-          company === selected ||
-          newPrice === selected ||
-          title === selected
-      );
-    }
-
-    return filteredProducts.map(
-      ({ img, title, star, reviews, prevPrice, newPrice }) => (
-        <Card
-          key={Math.random()}
-          img={img}
-          title={title}
-          star={star}
-          reviews={reviews}
-          prevPrice={prevPrice}
-          newPrice={newPrice}
-        />
-      )
-    );
-  }
-
-  const result = filteredData(products, selectedCategory, query);
-
 
   function filteredDataBeta(products, selected, query) {
     let filteredProducts = products;
@@ -105,25 +72,6 @@ function Search() {
   
   const resultBeta = filteredDataBeta(products, selectedCategory, query);
   const resultsBetaLength = resultBeta.length
-
-  // return (
-  //   <div className="search-page">
-  //     <Sidebar handleClick={handleClick} handleChange={handleChange} />
-  //     <div className="search-results">
-  //       <div className="search-input">
-  //         <input 
-  //           type="text" 
-  //           value={query} 
-  //           onChange={handleInputChange} 
-  //           placeholder="Search emission factors..." 
-  //         />
-  //       </div>
-  //       <div className="results">
-  //         {result}
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 
   return (
     <>
