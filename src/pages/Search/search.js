@@ -20,7 +20,7 @@ function Search() {
   
   // ----------- Input Filter -----------
   const params = new URLSearchParams(window.location.search)
-  let query = params.get('q') ? q : '';
+  let query = params.get('q') ? params.get('q') : '';
 
   const filteredItems = products.filter(
     (product) => product.title.toLowerCase().indexOf(query.toLowerCase())!== -1
