@@ -14,19 +14,24 @@ const Login = ({ darkMode }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://54.226.167.211:8001/users/login', {
+      const response = await axios.post('http://ec2-54-226-167-211.compute-1.amazonaws.com/users/login/', {
         username: formData.username,
         password: formData.password
       });
-
-      // Assuming response.data contains the server response
+      const data = await response.data;
+      if (data.success) {
+        // Assuming response.data contains the server response
       console.log('Login successful:', response.data);
-
-      // Handle success state or redirect to dashboard
-    } catch (error) {
-      console.error('Login error:', error);
+      window.location.href = "/home";  
+      } else {
+        console.error('Login error:');
       // Handle error state or display error message
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert("An error occurred. Please try again.");
     }
+
   };
 
   return (
