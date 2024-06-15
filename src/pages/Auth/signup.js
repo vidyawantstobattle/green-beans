@@ -27,7 +27,7 @@ const Signup = ({ darkMode }) => {
     };
 
     try {
-      const response = await fetch('http://ec2-54-226-167-211.compute-1.amazonaws.com/users/register/', {
+      const response = await fetch('https://ec2-54-226-167-211.compute-1.amazonaws.com/users/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ const Login = ({ darkMode }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://ec2-54-226-167-211.compute-1.amazonaws.com/users/login/', {
+      const response = await axios.post('https://ec2-54-226-167-211.compute-1.amazonaws.com/users/login/', {
         username: formData.username,
         password: formData.password
       });
