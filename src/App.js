@@ -5,7 +5,7 @@ import Contribute from "./pages/Contribute/contribute";
 import Community from "./pages/Community/community";
 import APIDocs from "./pages/APIDocs/apidocs";
 import Search from "./pages/Search/search";
-import Support from "./pages/Support/support";
+import Contact from "./pages/Contact/contact";
 import Signup from "./pages/Auth/signup";
 import Login from "./pages/Auth/login";
 import "./index.css";
@@ -33,7 +33,7 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case "/":
+      case "/home":
         return <Home />;
       case "/search":
         return <Search />;
@@ -43,8 +43,8 @@ function App() {
         return <Community />;
       case "/api-docs":
         return <APIDocs />;
-      case "/support":
-        return <Support />;
+      case "/contcat":
+        return <Contact />;
         case '/login':
           return <Login darkMode={darkMode} />;
         case '/signup':

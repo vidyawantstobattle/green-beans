@@ -16,12 +16,12 @@ function Navigation({ setCurrentPage, darkMode, toggleDarkMode }) {
         <img src={logo} alt="askKauko" onClick={() => navigate("/")} />
       </div>
       <ul className="navbar-links">
-        <li><a href="#" onClick={() => navigate("/")}>Home</a></li>
+        <li><a href="#" onClick={() => navigate("/home")}>Home</a></li>
         <li><a href="#" onClick={() => navigate("/search")}>Search</a></li>
         <li><a href="#" onClick={() => navigate("/contribute")}>Contribute</a></li>
         <li><a href="#" onClick={() => navigate("/community")}>Community</a></li>
         <li><a href="#" onClick={() => navigate("/api-docs")}>API Docs</a></li>
-        <li><a href="#" onClick={() => navigate("/support")}>Support</a></li>
+        <li><a href="#" onClick={() => navigate("/Contact")}>Contact</a></li>
       </ul>
       <div className="navbar-auth">
         <button onClick={() => navigate("/signup")} className="auth-button">Sign Up</button>
