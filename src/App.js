@@ -36,15 +36,15 @@ function App() {
       case "/home":
         return <Home />;
       case "/search":
-        return <Search />;
+        return <Search darkMode={darkMode}/>;
       case "/contribute":
-        return <Contribute />;
+        return <Contribute darkMode={darkMode}/>;
       case "/community":
-        return <Community />;
+        return <Community darkMode={darkMode}/>;
       case "/api-docs":
-        return <APIDocs />;
-      case "/contcat":
-        return <Contact />;
+        return <APIDocs darkMode={darkMode}/>;
+      case "/contact":
+        return <Contact darkMode={darkMode}/>;
         case '/login':
           return <Login darkMode={darkMode} />;
         case '/signup':
