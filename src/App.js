@@ -14,6 +14,12 @@ function App() {
   const [currentPage, setCurrentPage] = useState(window.location.pathname);
   const [darkMode, setDarkMode] = useState(false);
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
   useEffect(() => {
     const handlePopState = () => {
       setCurrentPage(window.location.pathname);
@@ -38,7 +44,7 @@ function App() {
       case "/search":
         return <Search />;
       case "/contribute":
-        return <Contribute />;
+        return <Contribute isLoggedIn={isLoggedIn}/>;
       case "/community":
         return <Community />;
       case "/api-docs":
@@ -46,7 +52,7 @@ function App() {
       case "/support":
         return <Support />;
         case '/login':
-          return <Login darkMode={darkMode} />;
+          return <Login darkMode={darkMode} onLogin={handleLogin} />;
         case '/signup':
           return <Signup darkMode={darkMode} />;
       default:
