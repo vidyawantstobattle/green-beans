@@ -7,10 +7,13 @@ function Category({ handleChange }) {
     <div>
       <h2 style={{ marginTop: 80 }}className="sidebar-title">Category</h2>
       <div>
-        <label className="sidebar-label-container">
-          <input onChange={handleChange} type="radio" value="" name="test" />
-          <span className="checkmark"></span>All
-        </label>
+        <select onChange={handleChange} name="category" id="category">
+        <Input2
+          handleChange={handleChange}
+          value=""
+          title="All"
+          name="test"
+        />
         <Input2
           handleChange={handleChange}
           value="sneakers"
@@ -35,6 +38,7 @@ function Category({ handleChange }) {
           title="Heels"
           name="test"
         />
+        </select>
       </div>
     </div>
   );

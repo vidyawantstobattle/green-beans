@@ -43,6 +43,7 @@
   cursor: pointer;
 }
 
+
 .switch {
   position: relative;
   display: inline-block;
@@ -99,7 +100,11 @@ body.dark-mode .navbar {
 }
 
 body.dark-mode .auth-button {
-  background-color: #616060;
+  background-color: #444;
+}
+
+body.dark-mode .auth-button:hover {
+  background-color: #d5ab1d;
 }
 body.dark-mode .navbar-links li a {
   color: #f0e3e3;

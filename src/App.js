@@ -5,7 +5,7 @@ import Contribute from "./pages/Contribute/contribute";
 import Community from "./pages/Community/community";
 import APIDocs from "./pages/APIDocs/apidocs";
 import Search from "./pages/Search/search";
-import Support from "./pages/Support/support";
+import Contact from "./pages/Contact/contact";
 import Signup from "./pages/Auth/signup";
 import Login from "./pages/Auth/login";
 import "./index.css";
@@ -39,18 +39,18 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case "/":
+      case "/home":
         return <Home />;
       case "/search":
-        return <Search />;
+        return <Search darkMode={darkMode}/>;
       case "/contribute":
-        return <Contribute isLoggedIn={isLoggedIn}/>;
+        return <Contribute darkMode={darkMode} isLoggedIn={isLoggedIn}/>;
       case "/community":
-        return <Community />;
+        return <Community darkMode={darkMode}/>;
       case "/api-docs":
-        return <APIDocs />;
-      case "/support":
-        return <Support />;
+        return <APIDocs darkMode={darkMode}/>;
+      case "/contact":
+        return <Contact darkMode={darkMode}/>;
         case '/login':
           return <Login darkMode={darkMode} onLogin={handleLogin} />;
         case '/signup':

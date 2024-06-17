@@ -6,11 +6,13 @@ const Price = ({ handleChange }) => {
     <>
       <div className="ml">
         <h2 className="sidebar-title price-title">Price</h2>
-
-        <label className="sidebar-label-container">
-          <input onChange={handleChange} type="radio" value="" name="test2" />
-          <span className="checkmark"></span>All
-        </label>
+        <select onChange={handleChange} name="price" id="price">
+        <Input2
+          handleChange={handleChange}
+          value=''
+          title="All"
+          name="test2"
+        />
 
         <Input2
           handleChange={handleChange}
@@ -39,6 +41,7 @@ const Price = ({ handleChange }) => {
           title="Over $150"
           name="test2"
         />
+        </select>
       </div>
     </>
   );
