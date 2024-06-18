@@ -30,7 +30,7 @@ function Home() {
       </div>
       <div className="additional-info">
         <h2>What is ImpactOS EF Database?</h2>
-        <p>This is comprehensive platform that allows you to access and contribute to a vast database of emission factors. </p>
+        <p>This is a comprehensive platform that allows you to access and contribute to a vast database of emission factors. </p>
         <br></br>
       </div>
       <div className="reliable-sources">
