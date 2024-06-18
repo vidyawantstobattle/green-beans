@@ -4,7 +4,7 @@ import './Price.css';
 const Price = ({ handleChange }) => {
   return (
     <>
-      <div className="ml">
+      <div>
         <h2 className="sidebar-title price-title">Price</h2>
         <select onChange={handleChange} name="price" id="price">
         <Input2
