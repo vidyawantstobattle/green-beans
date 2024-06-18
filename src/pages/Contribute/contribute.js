@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './contribute.css'; 
+import Login from '../Auth/login';
 
-const Contribute = ({ darkMode, isLoggedIn }) => {
+const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
   const [formData, setFormData] = useState({
     emissionFactorValue: '',
     emissionFactorUnit: '',
@@ -25,15 +26,20 @@ const Contribute = ({ darkMode, isLoggedIn }) => {
     // required fields for the form to submit:
   };
 
+  const currentPage=window.location.pathname;
+
+
   return (
     <div>
       {!isLoggedIn ? (
-        <div>
-          <p>Please log in to contribute data.</p>
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-        </div>
+         <div className={`contribute-container ${darkMode ? 'dark' : ''}`}>
+       <div className="notification-container">
+            <p>Please log in to contribute Emission Factor data</p>
+
+            <Login  darkMode={darkMode} onLogin={onLogin} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+            </div>
+            </div>
+
       ) : (
           <div className={`contribute-container ${darkMode ? 'dark' : ''}`}>
             <div className="form-wrapper">

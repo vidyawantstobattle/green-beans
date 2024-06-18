@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './auth.css';
 
-const Login = ({ darkMode }) => {
+const Login = ({ darkMode, onLogin, setCurrentPage, currentPage }) => {
   const [formData, setFormData] = useState({ username: '', password: '' });
 
   const handleChange = (e) => {
@@ -22,7 +22,11 @@ const Login = ({ darkMode }) => {
       if (data.success) {
         // Assuming response.data contains the server response
       console.log('Login successful:', response.data);
-      window.location.href = "/home";  
+      onLogin();
+      if (currentPage != "/contribute") {
+        setCurrentPage("/home");
+      }
+      //window.location.href = "/home";  
       } else {
         console.error('Login error:');
       // Handle error state or display error message

@@ -18,6 +18,7 @@ function App() {
 
   const handleLogin = () => {
     setIsLoggedIn(true);
+    console.log("isLoggedIn", isLoggedIn)
   };
 
   useEffect(() => {
@@ -44,7 +45,7 @@ function App() {
       case "/search":
         return <Search darkMode={darkMode}/>;
       case "/contribute":
-        return <Contribute darkMode={darkMode} isLoggedIn={isLoggedIn}/>;
+        return <Contribute darkMode={darkMode} isLoggedIn={isLoggedIn} onLogin={handleLogin} setCurrentPage={setCurrentPage} />;
       case "/community":
         return <Community darkMode={darkMode}/>;
       case "/api-docs":
@@ -52,7 +53,7 @@ function App() {
       case "/contact":
         return <Contact darkMode={darkMode}/>;
         case '/login':
-          return <Login darkMode={darkMode} onLogin={handleLogin} />;
+          return <Login darkMode={darkMode} onLogin={handleLogin} setCurrentPage={setCurrentPage} currentPage={currentPage} />;
         case '/signup':
           return <Signup darkMode={darkMode} />;
       default:

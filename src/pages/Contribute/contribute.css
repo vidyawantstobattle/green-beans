@@ -136,4 +136,25 @@
     font-size: 0.75rem;
     font-weight: 600;
   }
+
+  /* contribute.css */
+.notification-container {
+
+  
+
+  text-align: center;
+}
+
+.notification-container p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.notification-container .login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
   
