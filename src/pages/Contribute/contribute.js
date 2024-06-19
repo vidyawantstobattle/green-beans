@@ -40,6 +40,9 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     ]
   };
 
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false); // State for success message
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -51,6 +54,7 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     try {
       const response = await axios.post('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissionfactor/', formData); // Change the URL to your POST API endpoint
       console.log('Form submitted:', response.data);
+      setShowSuccessMessage(true);
       // Handle successful submission, e.g., show a success message or clear the form
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -156,6 +160,17 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                 </select>
                 </div>
                 <div className="form-group">
+                  <label htmlFor="sector">Sector:</label>
+                  <input
+                    type="text"
+                    id="sector"
+                    name="sector"
+                    value={formData.sector}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
                   <label htmlFor="emissioncategory">Emission Category:</label>
                   <select
                   id="emissioncategory"
@@ -196,6 +211,9 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                   <button type="submit" className="submit-button">Submit</button>
                 </div>
               </form>
+              {showSuccessMessage && (
+            <p style={{ color: 'green', marginTop: '1rem' }}>Emission Factor submitted successfully!</p>
+          )}
             </div>
 
             {/* Submission Status */}
