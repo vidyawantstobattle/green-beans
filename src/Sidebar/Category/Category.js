@@ -5,7 +5,7 @@ import logo from "../../assets/impactos.png"; // Ensure this path is correct
 function Category({ handleChange }) {
   return (
     <div>
-      <h2 style={{ marginTop: 80 }}className="sidebar-title">Category</h2>
+      <h2 style={{ marginTop: 80 }}className="sidebar-title">Pollutant</h2>
       <div>
         <select onChange={handleChange} name="category" id="category">
         <Input2
@@ -16,26 +16,14 @@ function Category({ handleChange }) {
         />
         <Input2
           handleChange={handleChange}
-          value="sneakers"
-          title="Sneakers"
+          value="METHANE\n"
+          title="Methane"
           name="test"
         />
         <Input2
           handleChange={handleChange}
-          value="flats"
-          title="Flats"
-          name="test"
-        />
-        <Input2
-          handleChange={handleChange}
-          value="sandals"
-          title="Sandals"
-          name="test"
-        />
-        <Input2
-          handleChange={handleChange}
-          value="heels"
-          title="Heels"
+          value="CO2"
+          title="CO2"
           name="test"
         />
         </select>
