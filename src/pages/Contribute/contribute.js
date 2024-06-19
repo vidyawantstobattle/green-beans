@@ -40,6 +40,31 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     ]
   };
 
+  /*useEffect(() => {
+    // Fetch data from the APIs
+    const fetchData = async () => {
+      try {
+        const [categoriesResponse, scopesResponse, sourcesResponse, sectorsResponse] = await Promise.all([
+          axios.get('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissioncategory/'), // Change the URL to your GET API endpoint for emission categories
+          axios.get('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/geographicalscope/'), // Change the URL to your GET API endpoint for geographical scopes
+          axios.get('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/datasource/'), // Change the URL to your GET API endpoint for data sources
+          axios.get('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/sector/') // Change the URL to your GET API endpoint for data sources
+        ]);
+
+        setOptions({
+          emissionCategories: categoriesResponse.data,
+          geographicalScopes: scopesResponse.data,
+          dataSources: sourcesResponse.data,
+          sector: sectorsResponse.data
+        });
+      } catch (error) {
+        console.error('Error fetching options:', error);
+      }
+    };
+
+    fetchData();
+  }, []);*/
+
   const [showSuccessMessage, setShowSuccessMessage] = useState(false); // State for success message
 
 
@@ -145,7 +170,7 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                 </select>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="geographicalscope">Geographical Scope:</label>
+                  <label htmlFor="geographicalscope">Region:</label>
                   <select
                   id="geographicalscope"
                   name="geographicalscope"
@@ -153,22 +178,11 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Select Geographical Scope</option>
+                  <option value="">Select Region</option>
                   {data.geographicalScopes.map((scope) => (
                     <option key={scope.id} value={scope.id}>{scope.name}</option>
                   ))}
                 </select>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="sector">Sector:</label>
-                  <input
-                    type="text"
-                    id="sector"
-                    name="sector"
-                    value={formData.sector}
-                    onChange={handleChange}
-                    required
-                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="emissioncategory">Emission Category:</label>
