@@ -10,6 +10,7 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     pollutant: '',
     dataSource: '',
     geographicalScope: '',
+    sector:'',
     emissionCategory: '',
     co2OrCo2Equivalent: '',
     technicalReference: '',
@@ -20,10 +21,50 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // required fields for the form to submit:
+
+    const userData = {
+      emission_quantity: formData.emissionFactorValue,
+      emission_quantity_units: formData.emissionFactorUnit,
+      pollutant: formData.pollutant,
+      datasource: formData.dataSource,
+      geographicalscope: formData.geographicalScope,
+      sector: formData.sector,
+      emissioncategory: formData.emissionCategory,
+      co2_or_co2_equivalent: formData.co2OrCo2Equivalent,
+      technical_refrence: formData.technicalReference,
+    };
+    try {
+      const response = await fetch('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissionfactor/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      console.log('Form submitted successfully:', data);
+      // clear the form open success
+      setFormData({
+        emissionFactorValue: '',
+        emissionFactorUnit: '',
+        pollutant: '',
+        dataSource: '',
+        geographicalScope: '',
+        sector:'',
+        emissionCategory: '',
+        co2OrCo2Equivalent: '',
+        technicalReference: '',
+      });
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
   };
 
   const currentPage=window.location.pathname;
@@ -90,12 +131,23 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="geographicalScope">Geographical Scope:</label>
+                  <label htmlFor="geographicalScope">Region:</label>
                   <input
                     type="text"
                     id="geographicalScope"
                     name="geographicalScope"
                     value={formData.geographicalScope}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="sector">Sector:</label>
+                  <input
+                    type="text"
+                    id="sector"
+                    name="sector"
+                    value={formData.sector}
                     onChange={handleChange}
                     required
                   />
