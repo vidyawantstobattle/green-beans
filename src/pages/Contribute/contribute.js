@@ -16,6 +16,9 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     technicalReference: '',
   });
 
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false); // State for success message
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -50,6 +53,7 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
 
       const data = await response.json();
       console.log('Form submitted successfully:', data);
+      setShowSuccessMessage(true); // Show success message
       // clear the form open success
       setFormData({
         emissionFactorValue: '',
@@ -189,6 +193,9 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                   <button type="submit" className="submit-button">Submit</button>
                 </div>
               </form>
+              {showSuccessMessage && (
+            <p style={{ color: 'green', marginTop: '1rem' }}>Emission Factor submitted successfully!</p>
+          )}
             </div>
 
             {/* Submission Status */}
