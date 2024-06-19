@@ -50,7 +50,7 @@ function App() {
         return <Community darkMode={darkMode}/>;
       case "/api-docs":
         return <APIDocs darkMode={darkMode}/>;
-      case "/contact":
+      case "/about-us":
         return <Contact darkMode={darkMode}/>;
         case '/login':
           return <Login darkMode={darkMode} onLogin={handleLogin} setCurrentPage={setCurrentPage} currentPage={currentPage} />;

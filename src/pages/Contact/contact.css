@@ -14,6 +14,41 @@
     background-color: #444;
     color: #e2e8f0;
   }
+
+  .about-us {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+}
+
+.about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    flex: 0 0 20%;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.contact-container.dark .team-member {
+    background-color: #2f3134;
+    color: #e2e8f0;
+}
+
+
   
   .contact-content {
     display: flex;
@@ -50,7 +85,13 @@
     background-color: #2f3134;
     color: #e2e8f0;
   }
-  
+
+  .team-member .profile-picture{
+    margin-top: 18%;
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
   .contact-profile .profile-picture {
     margin-top: 18%;
     width: 100%;
@@ -62,6 +103,15 @@
   .contact-profile h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+  }
+
+  .company-info h3{
+    margin-bottom: 10px;
+  }
+
+  .linkedin{
+    height: 60px;
+    width: 60px;
   }
   
   .contact-profile p {
@@ -147,6 +197,11 @@
   .contact-container.dark .submit-button:hover {
     background-color: #d5ab1d;
   }
+
+  .company-info img{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
   
   .company-info {
     width: 100%;
@@ -156,6 +211,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-bottom: 3%;
   }
   
   .contact-container.dark .company-info {
@@ -171,3 +227,4 @@
   .company-info p {
     margin: 0.5rem 0;
   }
+
