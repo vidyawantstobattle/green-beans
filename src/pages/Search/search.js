@@ -17,7 +17,7 @@ function Search() {
   useEffect(() => {
     async function fetchEmissionFactors() {
       try {
-        const response = await axios.get("http://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissionfactor/?format=json");
+        const response = await axios.get("https://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissionfactor/?format=json");
         const data = JSON.parse(JSON.stringify(response.data.data));
         setEmissionFactors(data);
       } catch (error) {
