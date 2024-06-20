@@ -61,7 +61,7 @@ function Search() {
           pollutant === selected ||
           emission_quantity_units === selected ||
           product_name === selected ||
-          date_recorded_year === selected ||
+          date_recorded_year == selected ||
           title === selected
       );
     }

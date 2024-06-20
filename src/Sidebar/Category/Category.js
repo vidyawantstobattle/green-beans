@@ -16,7 +16,7 @@ function Category({ handleChange }) {
         />
         <Input2
           handleChange={handleChange}
-          value="METHANE\n"
+          value="METHANE"
           title="Methane"
           name="test"
         />
