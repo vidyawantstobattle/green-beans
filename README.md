@@ -1,5 +1,4 @@
 # Getting Started with Create React App
-![React Website Filter and Search](https://github.com/samanth2012/React-Website-With-Filter-and-Search-Simple/assets/114215621/1f98e977-5f3b-4451-8eb8-4ee8da9e1c7c)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
