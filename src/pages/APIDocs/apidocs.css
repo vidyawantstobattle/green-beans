@@ -1,0 +1,57 @@
+
+
+.api-docs {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.api-docs-header1 {
+  background-color: #363748;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.api-docs-intro, .api-docs-redoc, .api-docs-database {
+  margin: 20px 0;
+}
+.api-docs h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.api-docs p {
+  margin-bottom: 20px;
+}
+.api-docs-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+h2 {
+  color: #4CAF50;
+}
+
