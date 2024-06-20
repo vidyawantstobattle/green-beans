@@ -1,34 +1,24 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
 import './contribute.css'; 
 import axios from 'axios';
 import Login from '../Auth/login';
+import SelectDropdown from './selectDropdown';
 
 const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     emission_quantity: '',
     emission_quantity_units: '',
     pollutant: '',
-    datasource: '',
-    geographicalscope: '',
-    emissioncategory: '',
-    co2_or_co2_equivalent: '',
+    datasource: null,
+    geographicalscope: null,
+    emissioncategory: null,
+    co2_or_co2_equivalent: null,
     technical_reference: '',
-    sector: '',
-  });
+    sector: null,
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
   const data = {
-    emissionCategories: [
-      { id: 1, name: 'Food and beverage' },
-      { id: 2, name: 'Fuel' },
-      { id: 72, name: 'Waste pellets' },
-      { id: 74, name: 'Municipal waste /mixed waste' }
-    ],
-    geographicalScopes: [
-      { id: 1, name: 'United States of America' },
-      { id: 2, name: 'Canada' },
-      { id: 10, name: 'Finland' }
-    ],
     dataSources: [
       { id: 1, name: 'IPCC' },
       { id: 2, name: 'SYKE Finnish Environment Institute' },
@@ -37,33 +27,34 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     sector: [
       { id: 1, name: 'Food and beverage' },
       { id: 2, name: 'Energy' }
+    ],
+    co2Values: [
+      { id: 1, name: 'CO2' },
+      { id: 2, name: 'CO2 Equivalent' }
     ]
   };
 
-  /*useEffect(() => {
+  const [emissionCategories, setEmissionCategories] = useState([]);
+  const [geographicalScopes, setGeographicalScopes] = useState([]);
+
+  useEffect(() => {
     // Fetch data from the APIs
     const fetchData = async () => {
       try {
-        const [categoriesResponse, scopesResponse, sourcesResponse, sectorsResponse] = await Promise.all([
+        const [categoriesResponse, scopesResponse] = await Promise.all([
           axios.get('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissioncategory/'), // Change the URL to your GET API endpoint for emission categories
           axios.get('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/geographicalscope/'), // Change the URL to your GET API endpoint for geographical scopes
-          axios.get('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/datasource/'), // Change the URL to your GET API endpoint for data sources
-          axios.get('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/sector/') // Change the URL to your GET API endpoint for data sources
         ]);
 
-        setOptions({
-          emissionCategories: categoriesResponse.data,
-          geographicalScopes: scopesResponse.data,
-          dataSources: sourcesResponse.data,
-          sector: sectorsResponse.data
-        });
+        setEmissionCategories(categoriesResponse.data.data);
+        setGeographicalScopes(scopesResponse.data.data);
       } catch (error) {
         console.error('Error fetching options:', error);
-      }
+      } 
     };
 
     fetchData();
-  }, []);*/
+  }, []);
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false); // State for success message
 
@@ -80,6 +71,9 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
       const response = await axios.post('https://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissionfactor/', formData); // Change the URL to your POST API endpoint
       console.log('Form submitted:', response.data);
       setShowSuccessMessage(true);
+      setFormData(initialFormData);
+      setTimeout(() => setShowSuccessMessage(false), 3000);
+
       // Handle successful submission, e.g., show a success message or clear the form
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -87,8 +81,32 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     }
   };
 
-  const currentPage=window.location.pathname;
+  const emissionCategoryOptions = emissionCategories.map((category) => ({
+    value: category.emission_category_id,
+    label: category.sub_category,
+  }));
 
+  const geographicalScopeOptions = geographicalScopes.map((scope) => ({
+    value: scope.geographical_scope_id,
+    label: scope.country,
+  }));
+
+  const sectorOptions = data.sector.map((category) => ({
+    value: category.id,
+    label: category.name,
+  }));
+
+  const dataSourcesOptions = data.dataSources.map((category) => ({
+    value: category.id,
+    label: category.name,
+  }));
+
+  const co2Options = data.co2Values.map((category) => ({
+    value: category.name,
+    label: category.name,
+  }));
+
+  const currentPage=window.location.pathname;
 
   return (
     <div>
@@ -141,74 +159,75 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="sector">Sector:</label>
-                  <select
+                  <SelectDropdown
                   id="sector"
                   name="sector"
-                  value={formData.sector}
-                  onChange={handleChange}
-                  required
+                  value={formData.sector}//{sectorOptions.find(option => option.value === formData.sector)}
+                  handleChange={handleChange}
+                  options={sectorOptions}
+                  maxMenuHeight={200} // This controls the height of the dropdown menu
+                  placeholder="Select Sector"
+                  isClearable={true}
                 >
-                  <option value="">Select Sector</option>
-                  {data.sector.map((source) => (
-                    <option key={source.id} value={source.id}>{source.name}</option>
-                  ))}
-                </select>
+                </SelectDropdown>
                 </div>
                 <div className="form-group">
                   <label htmlFor="datasource">Data Source:</label>
-                  <select
+                  <SelectDropdown
                   id="datasource"
                   name="datasource"
-                  value={formData.datasource}
-                  onChange={handleChange}
-                  required
+                  value={formData.datasource}//{dataSourcesOptions.find(option => option.value === formData.datasource)}
+                  handleChange={handleChange}
+                  options={dataSourcesOptions}
+                  maxMenuHeight={200} // This controls the height of the dropdown menu
+                  placeholder="Select Data Source"
+                  isClearable
                 >
-                  <option value="">Select Data Source</option>
-                  {data.dataSources.map((source) => (
-                    <option key={source.id} value={source.id}>{source.name}</option>
-                  ))}
-                </select>
+                </SelectDropdown>
                 </div>
                 <div className="form-group">
                   <label htmlFor="geographicalscope">Region:</label>
-                  <select
+                  <SelectDropdown
                   id="geographicalscope"
                   name="geographicalscope"
-                  value={formData.geographicalscope}
-                  onChange={handleChange}
-                  required
+                  value={formData.geographicalscope}//{geographicalScopeOptions.find(option => option.value === formData.geographicalscope)}
+                  handleChange={handleChange}
+                  options={geographicalScopeOptions}
+                  maxMenuHeight={200} // This controls the height of the dropdown menu
+                  placeholder="Select Region"
+                  isClearable
                 >
-                  <option value="">Select Region</option>
-                  {data.geographicalScopes.map((scope) => (
-                    <option key={scope.id} value={scope.id}>{scope.name}</option>
-                  ))}
-                </select>
+                </SelectDropdown>
                 </div>
                 <div className="form-group">
                   <label htmlFor="emissioncategory">Emission Category:</label>
-                  <select
+                  <div className="custom-dropdown">
+                  <SelectDropdown
                   id="emissioncategory"
                   name="emissioncategory"
-                  value={formData.emissioncategory}
-                  onChange={handleChange}
-                  required
+                  value={formData.emissioncategory}//{emissionCategoryOptions.find(option => option.value === formData.emissioncategory)}
+                  handleChange={handleChange}
+                  options={emissionCategoryOptions}
+                  maxMenuHeight={200} // This controls the height of the dropdown menu
+                  placeholder="Select Emission Category"
+                  isClearable
                 >
-                  <option value="">Select Emission Category</option>
-                  {data.emissionCategories.map((category) => (
-                    <option key={category.id} value={category.id}>{category.name}</option>
-                  ))}
-                </select>
+                </SelectDropdown>
+                </div>
                 </div>
                 <div className="form-group">
                   <label htmlFor="co2_or_co2_equivalent">CO2 or CO2 Equivalent:</label>
-                  <input
-                    type="text"
-                    id="co2_or_co2_equivalent"
-                    name="co2_or_co2_equivalent"
-                    value={formData.co2_or_co2_equivalent}
-                    onChange={handleChange}
-                    required
-                  />
+                  <SelectDropdown
+                  id="co2_or_co2_equivalent"
+                  name="co2_or_co2_equivalent"
+                  value={formData.co2_or_co2_equivalent}//{co2Options.find(option => option.value === formData.co2_or_co2_equivalent)}
+                  handleChange={handleChange}
+                  options={co2Options}
+                  maxMenuHeight={200} // This controls the height of the dropdown menu
+                  placeholder="Select CO2 or CO2 Equivalent"
+                  isClearable
+                >
+                </SelectDropdown>
                 </div>
                 <div className="form-group">
                   <label htmlFor="technical_reference">Technical Reference:</label>
