@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './contact.css'; 
 import image from '../../assets/sami.jpg';
 import vidya from '../../assets/vidya.jpg';
-import salsabeel from '../../assets/Salsabeeljpeg.jpeg';
+import salsabeel from '../../assets/Salsabeeljpeg.jpeg'
+import kiran from '../../assets/kiran.jpg';
+import anusha from '../../assets/anusha.jpg';
 import collab from '../../assets/collaboration.png';
 import emailjs from 'emailjs-com'; // Import the emailjs-com library
 
@@ -68,7 +70,7 @@ const Contact = ({ darkMode }) => {
             </a>
           </div>
           <div className="team-member">
-            <img src={image} alt="Team Member 2" className="profile-picture" />
+            <img src={anusha} alt="Team Member 2" className="profile-picture" />
             <h3>Anusha Annengala</h3>
             <p>Backend Developer</p>
             <a href='https://www.linkedin.com/in/anusha-a20/'>
@@ -76,7 +78,7 @@ const Contact = ({ darkMode }) => {
             </a>
           </div>
           <div className="team-member">
-            <img src={image} alt="Team Member 3" className="profile-picture" />
+            <img src={kiran} alt="Team Member 3" className="profile-picture" />
             <h3>Kiran Saud</h3>
             <p>Backend Developer</p>
             <a href='https://www.linkedin.com/in/kiran-singh-saud-a5826b18a/'>
