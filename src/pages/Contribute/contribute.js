@@ -257,7 +257,7 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                   <thead className="submission-status-table-header">
                     <tr>
                       <th>ID</th>
-                      <th>Name</th>
+                      <th>Category</th>
                       <th>Status</th>
                     </tr>
                   </thead>
@@ -265,7 +265,7 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                     {/*  submission */}
                     <tr>
                       <td>1</td>
-                      <td>Emission Factor Name</td>
+                      <td>Milk</td>
                       <td>submitted</td>
                     </tr>
                     {/* Repeat the above block for each submission */}
