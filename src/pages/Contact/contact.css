@@ -175,7 +175,7 @@
   }
   
   .submit-button {
-    background-color: #d5ab1d;
+    background-color: #84d2ff ;
     color: #fff;
     padding: 0.75rem 1.5rem;
     border: none;
@@ -186,15 +186,15 @@
   }
   
   .submit-button:hover {
-    background-color: #211a05;
+    background-color: #1d2226;
   }
   
   .contact-container.dark .submit-button {
-    background-color: #444;
+    background-color: #1d2226;
   }
   
   .contact-container.dark .submit-button:hover {
-    background-color: #d5ab1d;
+    background-color: #84d2ff;
   }
 
   .company-info img{
