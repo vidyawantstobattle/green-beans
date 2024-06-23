@@ -10,10 +10,11 @@ import './search.css';
 // this the refactored code related to searching and filtering results that was in app.js
 // put the css for the table in search.css ?
 function Search() {
-  
   const [loading, setLoading] = useState(false);
   const [emissionFactors, setEmissionFactors] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
   // Fetching emission factors asynchronously
   useEffect(() => {
