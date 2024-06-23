@@ -4,12 +4,14 @@ import Products from '../../Products/Products';
 import Recommond from '../../Recommond/Recommond';
 import Sidebar from '../../Sidebar/Sidebar';
 import TableElement from '../../components/tableelement';
+import Spinner from '../../components/spinner'
 import './search.css';
 
 // this the refactored code related to searching and filtering results that was in app.js
 // put the css for the table in search.css ?
 function Search() {
   
+  const [loading, setLoading] = useState(false);
   const [emissionFactors, setEmissionFactors] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -27,6 +29,17 @@ function Search() {
 
     fetchEmissionFactors();
   }, []);
+
+  // const preloader = document.querySelector('.preloader');
+  // useEffect(() => {
+  //   if (loading) {
+  //     setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+  //   }
+  // }, [loading]);
+
+  // if (loading) return <Spinner />
   
   // ----------- Input Filter -----------
   const params = new URLSearchParams(window.location.search)

@@ -1,14 +1,13 @@
 
 
 .api-docs {
-  font-family: Arial, sans-serif;
   padding: 20px;
 }
 
 .api-docs-header1 {
   background-color: #363748;
   padding: 20px;
-  color: white;
+  color: #edf1f4;
   text-align: center;
 }
 
@@ -38,13 +37,12 @@ table {
 
 th, td {
   padding: 10px;
-  border: 1px solid #ddd;
   text-align: left;
 }
 
 th {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #48bcff;
+  color: #edf1f4;
 }
 
 tr:nth-child(even) {
@@ -52,6 +50,6 @@ tr:nth-child(even) {
 }
 
 h2 {
-  color: #4CAF50;
+  color: #84d2ff;
 }
 

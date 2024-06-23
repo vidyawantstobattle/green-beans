@@ -44,20 +44,6 @@ const Colors = ({handleChange}) => {
           color="fraction"
         />
         </select>
-
-        {/* <label className="sidebar-label-container">
-          <input
-            onChange={handleChange}
-            type="radio"
-            value="white"
-            name="test1"
-          />
-          <span
-            className="checkmark"
-            style={{ background: "white", border: "2px solid black" }}
-          ></span>
-          White
-        </label> */}
       </div>
     </>
   );

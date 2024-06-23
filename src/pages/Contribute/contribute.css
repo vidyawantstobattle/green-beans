@@ -3,7 +3,6 @@
 .contribute-container {
     background-color: var(--bg-color, #f9fafb);
     color: var(--text-color, #333);
-    font-family: 'Sans-serif', Arial, sans-serif;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./home.css";
 import ReliableSources from '../../components/ReliableSources/ReliableSources';
+import * as THREE from 'three';
+
 
 function Home() {
   const [query, setQuery] = useState("");

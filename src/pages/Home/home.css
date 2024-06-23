@@ -6,14 +6,13 @@
   justify-content: flex-start; /* Adjusted to fit additional content */
   min-height: 100vh;
   padding: 20px; /* Added padding for better spacing */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../../assets/impactOS1.png')  center center;
-  background-repeat: repeat-x;
-  color: white; /* Ensures text is readable on the dark background */
-  font-family: 'Arial', sans-serif; /* Updated font family */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../../assets/black-swan-background.jpg');
+  background-repeat: repeat;
+  color: #edf1f4; /* Ensures text is readable on the dark background */
 }
 
 .home.dark {
-  background: #333333;
+  background: #1d2226;
 }
 
 .platform-info,
@@ -56,8 +55,7 @@
   padding: 17px 25px; /* Increase padding for larger size */
   margin-left: 10px;
   border-radius: 25px; /* Round edges */
-  background-color: #d5ab1d;
-  color: white;
+  background-color: #84d2ff;
   border: none;
   font-size: 20px; /* Increase font size */
   cursor: pointer;
@@ -87,9 +85,9 @@
 .reliable-sources {
   margin-top: 40px;
   text-align: center;
-  color: white;
+  color: #edf1f4;
 }
 
 .reliable-sources.dark {
-  color: #ffffff;
+  color: #edf1f4;
 }

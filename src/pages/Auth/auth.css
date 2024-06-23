@@ -6,15 +6,15 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #fff;
+  background-color: #edf1f4;
 }
 
 .auth-container.dark {
-  background-color: #444;
+  background-color: #1d2226;
 }
 
 .auth-form {
-  background-color: #fff;
+  background-color: #edf1f4;
   border-radius: 8px;
   padding: 2rem;
   width: 45%;
@@ -24,8 +24,8 @@
 }
 
 .auth-form.dark {
-  background-color: #2f3134;
-  color: #e2e8f0;
+  background-color: #1d2226;
+  color: #edf1f4;
 }
 
 .auth-form h2 {
@@ -41,16 +41,16 @@
   width: 100%;
   padding: 0.5rem;
   margin-top: 10px;
-  border: 2px solid #e2e8f0;
+  border: 2px solid #edf1f4;
   border-radius: 4px;
-  background-color: #fff;
-  color: #333;
+  background-color: #edf1f4;
+  color: #1d2226;
 }
 
 .auth-form.dark .input-container input {
   background-color: #7a7878;
   border-color: #dbdada;
-  color: #e2e8f0;
+  color: #edf1f4;
 }
 
 .auth-form .input-container p.input-explanation {
@@ -65,8 +65,8 @@
 }
 
 .auth-form button {
-  background-color: #d5ab1d;
-  color: #fff;
+  background-color: #84d2ff;
+  color: #edf1f4;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
@@ -76,15 +76,15 @@
 }
 
 .auth-form button:hover {
-  background-color: #211a05;
+  background-color: #1d2226;
 }
 
 .auth-form.dark button {
-  background-color: #444;
+  background-color: #1d2226;
 }
 
 .auth-form.dark button:hover {
-  background-color: #d5ab1d;
+  background-color: #84d2ff;
 }
 
 .auth-form.login {
@@ -107,8 +107,8 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #333;
-  color: white;
+  background-color: #1d2226;
+  color: #edf1f4;
   cursor: pointer;
 }
 
@@ -118,7 +118,7 @@
 
 .auth-form.dark .third-party-button {
   background-color: #555;
-  color: white;
+  color: #edf1f4;
 }
 
 .auth-form.dark .third-party-button:hover {

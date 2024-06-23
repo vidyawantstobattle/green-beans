@@ -1,14 +1,14 @@
 .reliable-sources {
     margin-top: -10px;
     text-align: center;
-    color: white;
+    color: #edf1f4;
     width: 100%;
     padding: 20px;
   }
   
   .reliable-sources h2 {
     margin-bottom: 20px;
-    color: white;
+    color: #edf1f4;
   }
   
   .sources-container {
@@ -24,7 +24,7 @@
     padding: 20px;
     width: 300px;
     text-align: left;
-    color: white;
+    color: #edf1f4;
   }
   
   .source-card h3 {
@@ -37,7 +37,7 @@
   }
   
   .source-card a {
-    color: #c1b620;
+    color: #84d2ff;
     text-decoration: none;
     font-weight: bold;
   }

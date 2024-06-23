@@ -5,9 +5,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../../assets/impactOS1.png') center center;
-    background-repeat: repeat-x;
-    color: white;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../../assets/black-swan-background.jpg');
+    background-repeat: repeat;
+    color: #edf1f4;
     padding: 20px;
   }
   
@@ -24,7 +24,6 @@
   .join-discord-content h1 {
     margin-bottom: 20px;
     font-size: 2.5rem;
-    font-family: 'Arial', sans-serif;
   }
   
   .discord-button {
@@ -32,8 +31,7 @@
     padding: 15px 30px;
     margin-bottom: 20px;
     font-size: 1.2rem;
-    color: white;
-    background-color: #d5ab1d;
+    background-color: #84d2ff;
     border: none;
     border-radius: 25px;
     text-decoration: none;
@@ -42,7 +40,7 @@
   }
   
   .discord-button:hover {
-    background-color: #b58915;
+    background-color: #48bcff;
     transform: scale(1.1);
   }
   
