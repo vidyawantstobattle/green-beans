@@ -10,17 +10,23 @@ import './search.css';
 // this the refactored code related to searching and filtering results that was in app.js
 // put the css for the table in search.css ?
 function Search() {
+
   const [loading, setLoading] = useState(false);
   const [emissionFactors, setEmissionFactors] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
-
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
   // Fetching emission factors asynchronously
   useEffect(() => {
     async function fetchEmissionFactors() {
       try {
-        const response = await axios.get("https://ec2-54-226-167-211.compute-1.amazonaws.com/api/emissionfactor/?format=json");
+        const axiosInstance = axios.create({
+          baseURL: 'https://ec2-54-226-167-211.compute-1.amazonaws.com',
+          httpsAgent: {
+            rejectUnauthorized: false,
+          },
+        });
+
+        const response = await axiosInstance.get("/api/emissionfactor/?format=json");
         const data = JSON.parse(JSON.stringify(response.data.data));
         setEmissionFactors(data);
       } catch (error) {
