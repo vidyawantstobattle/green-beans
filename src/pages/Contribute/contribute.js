@@ -13,7 +13,7 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
     geographicalscope: null,
     emissioncategory: null,
     co2_or_co2_equivalent: null,
-    technical_reference: '',
+    technical_refrence: '',
     sector: null,
   };
   const [formData, setFormData] = useState(initialFormData);
@@ -230,12 +230,12 @@ const Contribute = ({ darkMode, isLoggedIn, onLogin, setCurrentPage }) => {
                 </SelectDropdown>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="technical_reference">Technical Reference:</label>
+                  <label htmlFor="technical_refrence">Technical Reference:</label>
                   <input
                     type="text"
-                    id="technical_reference"
-                    name="technical_reference"
-                    value={formData.technical_reference}
+                    id="technical_refrence"
+                    name="technical_refrence"
+                    value={formData.technical_refrence}
                     onChange={handleChange}
                     required
                   />
