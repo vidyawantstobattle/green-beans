@@ -63,7 +63,7 @@ const Contact = ({ darkMode }) => {
         <div className="team-members">
           <div className="team-member">
             <img src={salsabeel} alt="Team Member 1" className="profile-picture" />
-            <h3>Salsabeel Tantoush</h3>
+            <h3>Salsabeel T.</h3>
             <p>Frontend Developer</p>
             <a href='https://www.linkedin.com/in/salsabeel-tantoush/'>
             <img className = 'linkedin' src ="https://blakeoliver.com.au/wp-content/uploads/2023/06/vecteezy_linkedin-logo-png-linkedin-icon-transparent-png_18930585_835.png" />

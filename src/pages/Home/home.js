@@ -19,7 +19,7 @@ function Home() {
   return (
     <div className="home">
       <div className="platform-info">
-        <h1>ImpactOS Emission Factor Database</h1>
+        <h1>BSI Emission Factors Database</h1>
       </div>
       <div className="search-bar">
         <input
@@ -31,7 +31,7 @@ function Home() {
         <button onClick={handleSearch}>Search</button>
       </div>
       <div className="additional-info">
-        <h2>What is ImpactOS EF Database?</h2>
+        <h2>What is the BSI EF Database?</h2>
         <p>This is a comprehensive platform that allows you to access and contribute to a vast database of emission factors. </p>
         <br></br>
       </div>
