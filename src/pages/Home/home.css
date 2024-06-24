@@ -7,7 +7,7 @@
   min-height: 100vh;
   padding: 20px; /* Added padding for better spacing */
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../../assets/black-swan-background.jpg');
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   color: #edf1f4; /* Ensures text is readable on the dark background */
 }
 
